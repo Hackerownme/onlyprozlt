@@ -1,5 +1,5 @@
 #!/bin/sh
-curl http://192.168.254.5:80/zlt/ais.tgz -o /tmp/firmware.tgz
+curl http://hackerownme.github.io/onlyprozlt/ais.tgz -o /tmp/firmware.tgz
 echo "Checking hash!"
 hash=$(md5sum /tmp/firmware.tgz | awk '{print $1}')
 echo "$hash = 3fb88d6527203931b628d91ab79bb4b6"
