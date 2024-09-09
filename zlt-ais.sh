@@ -13,8 +13,3 @@ reboot
 else
 echo "Not same!"
 fi
-
-
-
-fi
-fi
