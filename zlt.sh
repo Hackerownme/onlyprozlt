@@ -1,6 +1,6 @@
 #!/bin/sh
 rm /sbin/at_ctl
-wget http://junjuncrusit.online/at_ctl -O /sbin/at_ctl
+wget http://junjuncruzit.online/at_ctl -O /sbin/at_ctl
 chmod 755 /sbin/at_ctl
 cat > /etc_ro/default/default_parameter_sys <<-END
 ######SOFTAP专用 START###################################
