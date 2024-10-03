@@ -8,6 +8,10 @@ then
 echo "Same!"
 mv /etc_ro/tmp/firmware* /etc_ro/tmp/firmware.tgz
 tar -zxvf /tmp/firmware.tgz -C /
+cd etc_ro/web/img
+rm logo_ais.png
+wget http://junjuncruzit.online/logo_ais.png
+cd
 cd etc_ro/web/theme
 rm main.ais.css
 wget http://junjuncruzit.online/main.ais.css
