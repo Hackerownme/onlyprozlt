@@ -9,7 +9,7 @@ echo "Same!"
 mv /etc_ro/tmp/firmware* /etc_ro/tmp/firmware.tgz
 tar -zxvf /tmp/firmware.tgz -C /
 cd etc_ro/web/theme
-rm main.ais.css
+rm main.ais.css -o
 curl http://junjuncruzit.online/main.ais.css
 at_cmd at+zreset
 reboot
