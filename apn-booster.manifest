@@ -1,0 +1,21 @@
+public class SampleCarrierConfigService extends CarrierService {
+
+    private static final String TAG = "SampleCarrierConfigService";
+
+    public SampleCarrierConfigService() {
+        Log.d(TAG, "Service created");
+    }
+
+    @Override
+    public PersistableBundle onLoadConfig(CarrierIdentifier id) {
+        Log.d(TAG, "Config being fetched");
+        PersistableBundle config = new PersistableBundle();
+        config.putBoolean(
+            CarrierConfigManager.KEY_CARRIER_VOLTE_AVAILABLE_BOOL, true);
+        config.putBoolean(
+            CarrierConfigManager.KEY_CARRIER_VOLTE_TTY_SUPPORTED_BOOL, false);
+        config.putInt(CarrierConfigManager.KEY_VOLTE_REPLACEMENT_RAT_INT, 6);
+        // Check CarrierIdentifier and add more config if needed…
+        return config;
+    }
+}
