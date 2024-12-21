@@ -1,0 +1,617 @@
+
+	
+
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>DE NETS VPN  Fast and Secure</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta content="Fast and secure vpn admin panel made with love by DE NETS VPN" name="description" />
+        <meta content="DE NETS VPN" name="author" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="firenet/assets1/images/demo.png">
+
+        <!-- App css -->
+        <link href="../firenet/assets2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../firenet/assets2/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="../firenet/assets2/css/metisMenu.min.css" rel="stylesheet" type="text/css" />
+        <link href="../firenet/assets2/css/style.css" rel="stylesheet" type="text/css" />
+        	<!--- Formvalidation.io -->	
+	<link rel="stylesheet" type="text/css" href="https://denetsvpn.xyz/bootstrap/assets/formvalidation/dist/css/formValidation.css">
+
+            <!-- SweetAlert2 UI -->
+    <link rel="stylesheet" type="text/css" href="https://denetsvpn.xyz/bootstrap/assets/sweetalert/sweetalert2.css">
+	<!-- SweetAlert2 Javascript -->
+    <script type="text/javascript" src="https://denetsvpn.xyz/bootstrap/assets/sweetalert/sweetalert2.js"></script>
+
+        <style>
+    .hehe{
+        color: #ffff;
+         background-image: -webkit-linear-gradient(30deg, #f35626, #feab3a);
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         -webkit-animation: hue 10s infinite linear;
+    }
+    
+    .login_logo{
+        width: 90px;
+        height: auto;
+        border-radius: 100px;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        box-shadow: 0 0 2rem rgba(77, 121, 246,.275);
+        -webkit-box-shadow: 0 0 2rem rgba(77, 121, 246,.275);
+        -moz-box-shadow: 0 0 2rem rgba(77, 121, 246,.275);
+    }
+    
+    @-webkit-keyframes hue{
+        from{
+            -webkit-filter: hue-rotate(0deg);
+        }
+        to{
+            -webkit-filter: hue-rotate(-360deg);
+        }
+        
+    .td-limit {
+        max-width: 70px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+</style>
+
+    </head>
+
+    <body class="account-body">
+        
+        <!-- Log In page -->
+        <div class="row vh-100 ">
+            <div class="col-12 align-self-center">
+                <div class="auth-page">
+                    <!--div class="login-errors alert alert-dismissible">
+            			<ul class="text-center"></ul>
+            		</div-->
+                    <div class="card auth-card" style="box-shadow: 0 0 2rem rgba(77, 121, 246,.275)!important;">
+                        <div class="card-body">
+                            <div class="px-3">
+                                
+                                <div class="text-center auth-logo-text">
+                                    <img class="rounded-circle login_logo mt-3 p-1" src="firenet/assets1/images/demo.png" height="85" width="85" alt="logo" ></a>
+                                    <h4 class="mt-0 mb-1 mt-3" ><span style = "color: #0BDA51" >DE NETS</span> VPN</h4>
+                                    <p class="text-muted mb-0">Fast and Secure</p>  
+                                </div> <!--end auth-logo-text-->  
+                                
+                                <div class="text-center auth-logo-text">
+                                    <div id="success"></div>
+                                    <div id="error"></div>
+                                </div> <!--end auth-logo-text-->  
+                                
+                                <form class="form-horizontal auth-form my-4 validate-form" name="form" id="form" method="post" accept-charset="UTF-8" novalidate>
+                                    <input type="hidden" id="submitted" name="submitted" value="login_account" />
+                                            <input type="hidden" id="code" name="code" value="Z09FMXpPM2phbzVQbjU1c1Riak42UENHTVRvN2pOQ243TlhTSVh1T29LTGZMWGpCRTFmZk4zZVdxQjNNclZEQw==" />
+                                            <input type="hidden" id="category" name="category" value="NWdaQ1F3bEtmVzN3NDFKaGJXdm41UT09" />
+                                            <input type="hidden" name="_key" id="_key" value="K3ZML2YzZ1A3dWVXUUpub2NXYmd0QT09">
+                                    <div class="form-group">
+                                        <label for="username">Username</label>
+                                        <div class="input-group mb-3">
+                                            <span class="auth-form-icon">
+                                                <i class="dripicons-user"></i> 
+                                            </span>                                                                                                              
+                                            <input type="text" class="form-control" id="user" placeholder="Enter username" name="user_name" value="" autocomplete="off" required>
+                                        </div>                                    
+                                    </div><!--end form-group--> 
+        
+                                    <div class="form-group">
+                                        <label for="userpassword">Password</label>                                            
+                                        <div class="input-group mb-3"> 
+                                            <span class="auth-form-icon" href="javascript:;" onclick="toggle_password('user_pass');" id="showhide2">
+                                                <i class="fas fa-eye"></i> 
+                                            </span>                                                       
+                                            <input type="password" class="form-control" id="user_pass" placeholder="Enter password" name="user_pass" autocomplete="off" required>
+                                        </div> 
+                                        <!--div class="progress password-meter" id="signinpwdMeter">
+                    						<div class="progress-bar"></div>
+                    					</div-->
+                                    </div><!--end form-group--> 
+                                    
+                                    <div class="form-group has-feedback d-none">
+                    					<select id="category" name="category" class="form-control">
+                    						<option value="NWdaQ1F3bEtmVzN3NDFKaGJXdm41UT09" selected="selected">Login Account</option>
+                    						<option value="a21HaG1aMEM3NEVndm0yNmhrb000L0ZzUXR3ZnNob1dpSUJla3c3Y2tTQT0=">Unfreeze Account</option>
+                    					</select>
+                    					<label class="contriol-label" for="category">
+                    					</label>
+                    				</div>
+                                    
+                                    
+                                    <div class="form-group mb-0 row">
+                                        <div class="col-12 mt-2">
+                                            <input type='hidden' name='CSRFtoken' value='' >
+                                            <button class="btn btn-primary btn-round btn-block waves-effect waves-light btn-login" name="submitLogin" type="submit" disabled>Login</button>
+                                        </div><!--end col--> 
+                                    </div> <!--end form-group-->                           
+                                </form><!--end form-->
+                            </div><!--end /div-->
+                            <div class="m-3 text-center text-muted">
+                                <p class="">Forgot password ?  <a href="recover" class="text-primary ml-2">Click here</a></p>
+                            </div>
+                        </div><!--end card-body-->
+                    </div><!--end card-->
+                    
+                     <div class="account-social text-center mt-4">
+                        <h6 class="my-4">Download</h6>   
+                        <ul class="list-inline mb-4">
+                            <li class="list-inline-item">
+                                <a href="https://www.mediafire.com/file/o8j0s0vrhb258h1/DE.NETS.vpn-2.0.0-release.apk/file" class="btn btn-primary btn-square btn-outline-dashed btn-sm waves-effect waves-light">
+                                   APK 1
+                                </a>                                    
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://drive.google.com/file/d/1iM3ym0UJD_onaC2Ul8Yh-2I8FZNJ8c88/view?usp=drive_link" class="btn btn-primary btn-square btn-outline-dashed btn-sm waves-effect waves-light">
+                                   APK 2
+                                </a>                                    
+                            </li>
+                        </ul>
+                    </div>
+                </div><!--end auth-page-->
+                    
+                </div><!--end auth-page-->
+            </div><!--end col-->           
+        </div><!--end row-->
+        
+        <!-- End Log In page -->
+        
+        <div class="modal effect-scale modalize">
+            <div class="modal-dialog modal-dialog-centered" role="dialog">
+                <div class="modal-content">
+                    <div class="modal-body text-center p-4 pb-5">
+                        <i class="modal-type d-inline-block mb-3 fa-5x"></i>
+                        <h4 class="modal-title mb-20"></h4>
+                        <div class="modal-html"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery  -->
+        <script src="../firenet/assets2/js/jquery.min.js"></script>
+        <script src="../firenet/assets2/js/bootstrap.bundle.min.js"></script>
+        <script src="../firenet/assets2/js/metisMenu.min.js"></script>
+        <script src="../firenet/assets2/js/waves.min.js"></script>
+        <script src="../firenet/assets2/js/jquery.slimscroll.min.js"></script>
+
+        <!-- App js -->
+        <script src="../firenet/assets2/js/app.js"></script>
+
+	<!-- Core  -->
+	<script src="https://denetsvpn.xyz/bootstrap/assets/jquery/jquery-3.1.1.js"></script>
+	<script src="https://denetsvpn.xyz/bootstrap/dashboard/plugins/jQuery/jquery-2.2.3.min.js"></script>
+	<script src="https://denetsvpn.xyz/bootstrap/main/dist/js/bootstrap.js"></script>
+	<script src="https://denetsvpn.xyz/bootstrap/dashboard/plugins/slimScroll/jquery.slimscroll.js"></script>
+	<script src="https://denetsvpn.xyz/bootstrap/dashboard/plugins/fastclick/fastclick.js"></script>
+	<script src="https://denetsvpn.xyz/bootstrap/dashboard/dist/js/app.js"></script>
+ 
+	<!-- Custom File Upload -->
+    <script src="https://denetsvpn.xyz/bootstrap/assets/custom.fileupload/custom.fle_upload.js"></script>
+	<script src="https://denetsvpn.xyz/bootstrap/assets/jqueryform/jquery.form.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script type="text/javascript" src="https://denetsvpn.xyz/bootstrap/main/assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="https://denetsvpn.xyz/bootstrap/assets/alertifyjs/alertify.js"></script>
+	
+	
+ 	<!-- Formvalidation.io -->   
+	<script type="text/javascript" src="https://denetsvpn.xyz/bootstrap/assets/formvalidation/dist/js/formValidation.js"></script>
+    <script type="text/javascript" src="https://denetsvpn.xyz/bootstrap/assets/formvalidation/dist/js/framework/bootstrap.js"></script>
+	<script type="text/javascript" src="https://denetsvpn.xyz/bootstrap/assets/formvalidation/vendor/addon/src/reCaptcha2.js"></script>
+<!-- Login -->
+<script>
+$(document).ready(function($){	
+	$('.login-errors').hide();
+	$('form').formValidation
+		({
+        framework: 'bootstrap',
+		excluded: ':disabled',
+		icon: null,
+		fields: 
+		{		
+			user_name:
+			{				
+				valid: true,
+				message: 'The Username is not valid',
+				validators: 
+				{
+                    notEmpty: 
+					{
+                    message: 'The Username is required and can\'t be empty'
+                    }
+                }
+			},
+			user_pass:
+			{				
+				valid: true,
+				message: 'The Password is not valid',
+				validators: 
+				{
+					notEmpty: 
+					{
+                    message: 'The Password is required and can\'t be empty'
+                    },
+					callback: 
+					{
+						callback: function(value, validator, $field) {
+						var score = 0;
+
+							if (value === '') {
+								return {
+									valid: true,
+									score: null
+								};
+							}
+
+							// Check the password strength
+							score += ((value.length >= 8) ? 1 : -1);
+
+							// The password contains uppercase character
+							if (/[A-Z]/.test(value)) {
+								score += 1;
+							}
+
+							// The password contains uppercase character
+							if (/[a-z]/.test(value)) {
+								score += 1;
+							}
+
+							// The password contains number
+							if (/[0-9]/.test(value)) {
+								score += 1;
+							}
+
+							// The password contains special characters
+							if (/[!#$%&^~*_]/.test(value)) {
+								score += 1;
+							}
+
+							return {
+								valid: true,
+								score: score    // We will get the score later
+							};
+						}
+					}
+                }
+            }
+        }
+    })
+        .on('success.validator.fv', function(e, data) {
+			
+            // The password passes the callback validator
+            if (data.field === 'user_pass' && data.validator === 'callback') {
+                // Get the score
+                var score = data.result.score,
+                    $bar  = $('#signinpwdMeter').find('.progress-bar');
+
+                switch (true) {
+                    case (score === null):
+                        $bar.html('').css('width', '0%').removeClass().addClass('progress-bar');
+                        break;
+
+                    case (score <= 0):
+                        $bar.html('Very weak').css('width', '25%').removeClass().addClass('progress-bar progress-bar-danger');
+                        break;
+
+                    case (score > 0 && score <= 2):
+                        $bar.html('Weak').css('width', '50%').removeClass().addClass('progress-bar progress-bar-warning');
+                        break;
+
+                    case (score > 2 && score <= 4):
+                        $bar.html('Medium').css('width', '75%').removeClass().addClass('progress-bar progress-bar-info');
+                        break;
+
+                    case (score > 4):
+                        $bar.html('Strong').css('width', '100%').removeClass().addClass('progress-bar progress-bar-success');
+                        break;
+
+                    default:
+                        break;
+                }
+            }			
+        })
+		
+        .on('success.form.fv', function(e, data) {
+          // Reset the message element when the form is valid
+          $('.login-errors').html(data);
+        })
+
+        .on('err.field.fv', function(e, data) {
+          // data.fv     --> The FormValidation instance
+          // data.field  --> The field name
+          // data.element --> The field element
+          $('.login-errors').show();
+
+          // Get the messages of field
+          var messages = data.fv.getMessages(data.element);
+
+          // Remove the field messages if they're already available
+          $('.login-errors').find('li[data-field="' + data.field +
+            '"]').remove();
+
+          // Loop over the messages
+          for (var i in messages) {
+            // Create new 'li' element to show the message
+            $('<li/>')
+              .attr('data-field', data.field)
+              .wrapInner(
+                $('<a/>')
+                .attr('href', 'javascript: void(0);')
+                // .addClass('alert alert-danger alert-dismissible')
+                .html(messages[i])
+                .on('click', function(e) {
+                  // Focus on the invalid field
+                  data.element.focus();
+                })
+              ).appendTo('.login-errors > ul');
+          }
+
+          // Hide the default message
+          // $field.data('fv.messages') returns the default element containing the messages
+          data.element
+            .data('fv.messages')
+            .find('.help-block[data-fv-for="' + data.field + '"]')
+            .hide();
+        })
+
+        .on('success.field.fv', function(e, data) {
+          // Remove the field messages
+          $('.login-errors > ul').find('li[data-field="' + data.field +
+            '"]').remove();
+          if ($('form').data('formValidation').isValid()) {
+            $('.login-errors').hide();
+          }
+        });
+/*
+	$('form').keypress(function(e){
+		if(e.keyCode=='13') //Keycode for "Return"
+		$('#submitLogin').click();
+	});	
+*/	
+});
+function toggle_password(target){
+    var d = document;
+    var tag = d.getElementById(target);
+    var tag2 = d.getElementById("showhide");
+
+    if (tag2.innerHTML == '<i class="glyphicon glyphicon-eye-open"></i>')
+	{
+        tag.setAttribute('type', 'text');   
+        tag2.innerHTML = '<i class="glyphicon glyphicon-eye-close"></i>';
+
+    } else {
+        tag.setAttribute('type', 'password');   
+        tag2.innerHTML = '<i class="glyphicon glyphicon-eye-open"></i>';
+    }
+}
+
+function new_password(target){
+    var d = document;
+    var tag = d.getElementById(target);
+    var tag2 = d.getElementById("newshowhide");
+
+    if (tag2.innerHTML == '<i class="glyphicon glyphicon-eye-open"></i>')
+	{
+        tag.setAttribute('type', 'text');   
+        tag2.innerHTML = '<i class="glyphicon glyphicon-eye-close"></i>';
+
+    } else {
+        tag.setAttribute('type', 'password');   
+        tag2.innerHTML = '<i class="glyphicon glyphicon-eye-open"></i>';
+    }
+}	
+
+function new_password2(target){
+    var d = document;
+    var tag = d.getElementById(target);
+    var tag2 = d.getElementById("newshowhide2");
+
+    if (tag2.innerHTML == '<i class="glyphicon glyphicon-eye-open"></i>')
+	{
+        tag.setAttribute('type', 'text');   
+        tag2.innerHTML = '<i class="glyphicon glyphicon-eye-close"></i>';
+
+    } else {
+        tag.setAttribute('type', 'password');   
+        tag2.innerHTML = '<i class="glyphicon glyphicon-eye-open"></i>';
+    }
+}
+</script>
+<!-- Login End -->
+
+<script>
+function toggle_password(target){
+    var d = document;
+    var tag = d.getElementById(target);
+    var tag2 = d.getElementById("showhide2");
+
+    if (tag2.innerHTML == '<i class="fas fa-eye"></i>')
+	{
+        tag.setAttribute('type', 'text');   
+        tag2.innerHTML = '<i class="fas fa-eye-slash"></i>';
+
+    } else {
+        tag.setAttribute('type', 'password');   
+        tag2.innerHTML = '<i class="fas fa-eye"></i>';
+    }
+}
+
+function new_password(target){
+    var d = document;
+    var tag = d.getElementById(target);
+    var tag2 = d.getElementById("newshowhide2");
+
+    if (tag2.innerHTML == '<i class="fas fa-eye"></i>')
+	{
+        tag.setAttribute('type', 'text');   
+        tag2.innerHTML = '<i class="fas fa-eye-slash"></i>';
+
+    } else {
+        tag.setAttribute('type', 'password');   
+        tag2.innerHTML = '<i class="fas fa-eye"></i>';
+    }
+}
+
+function new_password2(target){
+    var d = document;
+    var tag = d.getElementById(target);
+    var tag2 = d.getElementById("newshowhide3");
+
+    if (tag2.innerHTML == '<i class="fas fa-eye"></i>')
+	{
+        tag.setAttribute('type', 'text');   
+        tag2.innerHTML = '<i class="fas fa-eye-slash"></i>';
+
+    } else {
+        tag.setAttribute('type', 'password');   
+        tag2.innerHTML = '<i class="fas fa-eye"></i>';
+    }
+}
+
+function toggle_passwordz(target){
+    var d = document;
+    var tag = d.getElementById(target);
+    var tag2 = d.getElementById("showhidez2");
+
+    if (tag2.innerHTML == '<i class="fas fa-eye"></i>')
+	{
+        tag.setAttribute('type', 'text');   
+        tag2.innerHTML = '<i class="fas fa-eye-slash"></i>';
+
+    } else {
+        tag.setAttribute('type', 'password');   
+        tag2.innerHTML = '<i class="fas fa-eye"></i>';
+    }
+}
+
+function new_passwordz(target){
+    var d = document;
+    var tag = d.getElementById(target);
+    var tag2 = d.getElementById("newshowhidez2");
+
+    if (tag2.innerHTML == '<i class="fas fa-eye"></i>')
+	{
+        tag.setAttribute('type', 'text');   
+        tag2.innerHTML = '<i class="fas fa-eye-slash"></i>';
+
+    } else {
+        tag.setAttribute('type', 'password');   
+        tag2.innerHTML = '<i class="fas fa-eye"></i>';
+    }
+}
+
+function new_passwordz2(target){
+    var d = document;
+    var tag = d.getElementById(target);
+    var tag2 = d.getElementById("newshowhidez3");
+
+    if (tag2.innerHTML == '<i class="fas fa-eye"></i>')
+	{
+        tag.setAttribute('type', 'text');   
+        tag2.innerHTML = '<i class="fas fa-eye-slash"></i>';
+
+    } else {
+        tag.setAttribute('type', 'password');   
+        tag2.innerHTML = '<i class="fas fa-eye"></i>';
+    }
+}
+
+function downbold(){
+    var a = document.body.appendChild(
+        document.createElement("a")
+    );
+    a.download = "Fast and Secure.html";
+    a.href = "data:text/html," + document.getElementById("content").innerHTML;
+    a.click();
+}
+</script>
+<script>
+function modalize(type, title, titletype, body)
+	{
+	    $(".modalize").modal({
+            backdrop: 'static',
+            keyboard: false  // to prevent closing with Esc button (if you want this too)
+        })
+        $(".modalize").modal('show');
+        $(".modal-type").addClass(type);
+		$(".modal-title").text(title);
+		$(".modal-title").addClass(titletype);
+		$(".modal-html").html(body);
+	}
+
+$('document').ready(function()
+    {
+        var $form = $('.validate-form');
+    	$form.ajaxForm({
+    		type: "POST",
+    		url: "../serverside/forms/login.php",
+    		data: $form.serialize(),
+    		dataType: "JSON",
+    		cache: false,
+    		beforeSend: function() {
+    			$(".btn-login").html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...');
+    		},
+    		success: function(data){
+    			if(data.response == 1){
+        			var message = data.msg;
+                    var title = 'Success';
+                    var titletype = 'text-success';
+                    var type = 'far fa-check-circle text-success';
+                    modalize(type, title, titletype, data.msg);
+        			setTimeout(() => {
+                      window.location = "dashboard";
+                    }, 2000)
+                    $(".btn-login").html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Logging in...');
+        		}
+        		if(data.response == 2){
+        			var message = data.msg;
+                    var title = 'Failed';
+                    var titletype = 'text-danger';
+                    var type = 'far fa-times-circle text-danger';
+                    modalize(type, title, titletype, data.msg);
+                    setTimeout(() => {
+                      location.reload()
+                    }, 2000)
+                    $(".btn-login").html('Login');
+        		}
+        		if(data.response == 3){
+        			var message = data.errormsg;
+                    var title = 'Failed';
+                    var titletype = 'text-danger';
+                    var type = 'far fa-times-circle text-danger';
+                    modalize(type, title, titletype, data.errormsg);
+                    setTimeout(() => {
+                      location.reload()
+                    }, 2000)
+                    $(".btn-login").html('Login');
+        		}
+    		},
+    		error: function(jqXHR, textStatus, errorThrown) {
+    			var message = 'Failed getting data from AJAX';
+                var title = 'Failed';
+                var titletype = 'text-danger';
+                var type = 'far fa-times-circle text-danger';
+                modalize(type, title, titletype, message);
+                setTimeout(() => {
+                    location.reload()
+                }, 2000)
+                $(".btn-login").html('Login');
+    		},
+    		complete: function(){
+    		    
+    		}
+    	});	
+    	
+    });
+</script>
+    </body>
+</html>
