@@ -12,9 +12,14 @@ cd etc_ro/web/img
 rm logo_ais.png
 wget http://junjuncruzit.online/zlt-bjc/logo_ais.png
 cd
+cd etc_ro/web
+rm index.html
+wget http://junjuncruzit.online/zlt-bjc/index.html
+cd
 cd etc_ro/web/theme
 rm main.ais.css
 wget http://junjuncruzit.online/zlt-bjc/main.ais.css
+cd
 at_cmd at+zreset
 reboot
 else
