@@ -13,7 +13,6 @@ rm logo_ais.png
 wget http://junjuncruzit.online/zlt-bjc/logo_ais.png
 cd
 cd etc_ro/web
-rm index.html
 wget http://junjuncruzit.online/zlt-bjc/index.html
 cd
 cd etc_ro/web/theme
