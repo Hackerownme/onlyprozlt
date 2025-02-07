@@ -68,7 +68,7 @@ html {
     margin: 0.67em 0;
   }
   mark {
-    background: #ff0;
+    background: #0b0b05;
     color: #000;
   }
   small {
@@ -7277,7 +7277,7 @@ html {
   
   #chatlist a{
       text-decoration: underline;
-      color: blue;
+      color: #f5f4fa;
   }
   
   #chatpanel {
@@ -8231,7 +8231,7 @@ html {
       background-image: -moz-linear-gradient(top, #C4D52A, #080004);
       background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e50c0c), to(#f70a0a));
       background-image: -webkit-linear-gradient(top, #f00202, #fc0707);
-      background-image: -o-linear-gradient(top, #C4D52A, #C4D52A);
+      background-image: -o-linear-gradient(top, #d52a2a, #d52a2a);
       background-image: linear-gradient(to bottom, #f60a0a, #fe0808);
       background-repeat: repeat-x;
       border-color: #eb0909 #ed0505 #ffffff;
@@ -8311,7 +8311,7 @@ html {
   }
   
   .login-page-bg{
-      background-color: #038d0d;
+      background-color: #d70a0a;
   }
   #login-form-container{
       border: 1px solid white;
